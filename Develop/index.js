@@ -41,11 +41,11 @@ const questions = [
         choices: ["ISC", "MIT", "Apache", "GNU GPLv3"]
     }
 ];
-c
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     const write = generateMarkdown(data)
-    fs.writeFile(fileName, write, catcherr(err) )
+    //ileName = "readme.md"
     let catcherr = (err) => {
         if(err){
             throw(err)
@@ -53,13 +53,15 @@ function writeToFile(fileName, data) {
             console.log("File written")
         }
     }
+    fs.writeFile(fileName, write, catcherr)
+    
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((data)=> {
-        writeToFile(fileName, data)
+        writeToFile("Readme.md", data)
     })
 }
 
